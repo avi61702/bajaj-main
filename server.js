@@ -46,7 +46,7 @@ function processData(data) {
                 result.alphabets.push(str.toUpperCase());
                 // Store individual characters for concatenation
                 for (let char of str) {
-                    alphabetChars.push(char.toLowerCase());
+                    alphabetChars.push(char);
                 }
             }
             // Everything else is special character
@@ -57,14 +57,14 @@ function processData(data) {
 
         result.sum = numSum.toString();
         
-        // Create concatenation string in reverse order with alternating caps
+        // Create concatenation string: reverse order with alternating caps (start uppercase)
         alphabetChars.reverse();
         let concatStr = '';
         for (let i = 0; i < alphabetChars.length; i++) {
             if (i % 2 === 0) {
-                concatStr += alphabetChars[i].toLowerCase();
-            } else {
                 concatStr += alphabetChars[i].toUpperCase();
+            } else {
+                concatStr += alphabetChars[i].toLowerCase();
             }
         }
         result.concat_string = concatStr;
